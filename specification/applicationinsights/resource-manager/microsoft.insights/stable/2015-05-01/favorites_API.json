@@ -107,7 +107,7 @@
         },
         "x-ms-examples": {
           "FavoriteList": {
-            "$ref": "./examples/SingleFavorite.json"
+            "$ref": "./examples/FavoriteGet.json"
           }
         },
         "x-ms-pageable": {
@@ -138,12 +138,16 @@
           "readOnly": true
         },
         "FavoriteType": {
+          "description": "Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.",
           "type": "string",
           "enum": [
             "shared",
             "user"
           ],
-          "description": "Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component."
+          "x-ms-enum": {
+            "name": "FavoriteType",
+            "modelAsString": false
+          }
         },
         "SourceType": {
           "type": "string",
@@ -211,7 +215,7 @@
     },
     "FavoriteTypeParameter": {
       "name": "favoriteType",
-      "in": "path",
+      "in": "query",
       "required": false,
       "type": "string",
       "default": "Shared",
@@ -224,7 +228,7 @@
     },
     "FavoriteIdParameter": {
       "name": "favoriteId",
-      "in": "path",
+      "in": "query",
       "required": false,
       "type": "string",
       "description": "The Id of a specific favorite defined in the Application Insights component",
