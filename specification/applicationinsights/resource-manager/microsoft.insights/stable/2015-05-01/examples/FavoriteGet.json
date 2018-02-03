@@ -16,7 +16,7 @@
                 "FavoriteType": "shared",
                 "SourceType": null,
                 "TimeModified": "2018-01-31T23:59:25.4594264Z",
-                "Tags": {"SampleTag1": "NoValue", "SampleTag2": "SomeValue"},
+                "Tags": ["SampleTag1", "SampleTag2"],
                 "Category": null,
                 "IsGeneratedFromTemplate" : false
             }

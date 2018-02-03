@@ -3,7 +3,7 @@
         "api-version": "2015-05-01",
         "resourceGroupName": "my-resource-group",
         "resourceName": "my-ai-component",
-        "subcriptionId": "subid",
+        "subscriptionId": "subid",
         "favoriteId": "deadb33f-8bee-4d3b-a059-9be8dac93960",
         "favoriteProperties": {
             "Name": "Blah Blah Blah",
@@ -36,7 +36,7 @@
                     "TagSample02"
                 ],
                 "Category": "",
-                "IsGeneratedFromTemplate": "false"
+                "IsGeneratedFromTemplate": false
             }
         }
     }
