@@ -85,77 +85,111 @@ directive:
 
   - suppress: DefinitionsPropertiesNamesCamelCase
     reason: This api was existing there from 2015, it will break existing client if we change the name
-    #where:
-    #  - $.definitions.ApplicationInsightsComponentProperties.properties.ApplicationId
-    #  - $.definitions.ApplicationInsightsComponentProperties.properties.AppId
-    #  - $.definitions.ApplicationInsightsComponentProperties.properties.Application_Type
-    #  - $.definitions.ApplicationInsightsComponentProperties.properties.Flow_Type
-    #  - $.definitions.ApplicationInsightsComponentProperties.properties.Request_Source
-    #  - $.definitions.ApplicationInsightsComponentProperties.properties.InstrumentationKey
-    #  - $.definitions.ApplicationInsightsComponentProperties.properties.CreationDate
-    #  - $.definitions.ApplicationInsightsComponentProperties.properties.TenantId
-    #  - $.definitions.ApplicationInsightsComponentProperties.properties.HockeyAppId
-    #  - $.definitions.ApplicationInsightsComponentProperties.properties.HockeyAppToken
-    #  - $.definitions.ApplicationInsightsComponentProperties.properties.SamplingPercentage
-    #  - $.definitions.WebTestProperties.properties.SyntheticMonitorId
-    #  - $.definitions.WebTestProperties.properties.Name
-    #  - $.definitions.WebTestProperties.properties.Description
-    #  - $.definitions.WebTestProperties.properties.Enabled
-    #  - $.definitions.WebTestProperties.properties.Frequency
-    #  - $.definitions.WebTestProperties.properties.Timeout
-    #  - $.definitions.WebTestProperties.properties.Kind
-    #  - $.definitions.WebTestProperties.properties.RetryEnabled
-    #  - $.definitions.WebTestProperties.properties.Locations
-    #  - $.definitions.WebTestProperties.properties.Configuration
-    #  - $.definitions.WebTestGeolocation.properties.Id 
-    #  - $.definitions.ApplicationInsightsComponentExportRequest.properties.RecordTypes
-    #  - $.definitions.ApplicationInsightsComponentExportRequest.properties.DestinationType
-    #  - $.definitions.ApplicationInsightsComponentExportRequest.properties.DestinationAddress
-    #  - $.definitions.ApplicationInsightsComponentExportRequest.properties.IsEnabled
-    #  - $.definitions.ApplicationInsightsComponentExportRequest.properties.NotificationQueueEnabled
-    #  - $.definitions.ApplicationInsightsComponentExportRequest.properties.NotificationQueueUri
-    #  - $.definitions.ApplicationInsightsComponentExportRequest.properties.DestinationStorageSubscriptionId
-    #  - $.definitions.ApplicationInsightsComponentExportRequest.properties.DestinationStorageLocationId
-    #  - $.definitions.ApplicationInsightsComponentExportRequest.properties.DestinationAccountId
-    #  - $.definitions.ApplicationInsightsComponentExportConfiguration.properties.ExportId
-    #  - $.definitions.ApplicationInsightsComponentExportConfiguration.properties.InstrumentationKey
-    #  - $.definitions.ApplicationInsightsComponentExportConfiguration.properties.RecordTypes
-    #  - $.definitions.ApplicationInsightsComponentExportConfiguration.properties.ApplicationName
-    #  - $.definitions.ApplicationInsightsComponentExportConfiguration.properties.SubscriptionId
-    #  - $.definitions.ApplicationInsightsComponentExportConfiguration.properties.ResourceGroup
-    #  - $.definitions.ApplicationInsightsComponentExportConfiguration.properties.DestinationStorageSubscriptionId
-    #  - $.definitions.ApplicationInsightsComponentExportConfiguration.properties.DestinationStorageLocationId
-    #  - $.definitions.ApplicationInsightsComponentExportConfiguration.properties.DestinationAccountId
-    #  - $.definitions.ApplicationInsightsComponentExportConfiguration.properties.DestinationType
-    #  - $.definitions.ApplicationInsightsComponentExportConfiguration.properties.IsUserEnabled
-    #  - $.definitions.ApplicationInsightsComponentExportConfiguration.properties.LastUserUpdate
-    #  - $.definitions.ApplicationInsightsComponentExportConfiguration.properties.NotificationQueueEnabled
-    #  - $.definitions.ApplicationInsightsComponentExportConfiguration.properties.ExportStatus
-    #  - $.definitions.ApplicationInsightsComponentExportConfiguration.properties.LastSuccessTime
-    #  - $.definitions.ApplicationInsightsComponentExportConfiguration.properties.LastGapTime
-    #  - $.definitions.ApplicationInsightsComponentExportConfiguration.properties.PermanentErrorReason
-    #  - $.definitions.ApplicationInsightsComponentExportConfiguration.properties.StorageName
-    #  - $.definitions.ApplicationInsightsComponentExportConfiguration.properties.ContainerName
-    #  - $.definitions.ApplicationInsightsComponentBillingFeatures.properties.DataVolumeCap
-    #  - $.definitions.ApplicationInsightsComponentBillingFeatures.properties.CurrentBillingFeatures
-    #  - $.definitions.ApplicationInsightsComponentDataVolumeCap.properties.Cap
-    #  - $.definitions.ApplicationInsightsComponentDataVolumeCap.properties.ResetTime
-    #  - $.definitions.ApplicationInsightsComponentDataVolumeCap.properties.WarningThreshold
-    #  - $.definitions.ApplicationInsightsComponentDataVolumeCap.properties.StopSendNotificationWhenHitThreshold
-    #  - $.definitions.ApplicationInsightsComponentDataVolumeCap.properties.StopSendNotificationWhenHitCap
-    #  - $.definitions.ApplicationInsightsComponentDataVolumeCap.properties.MaxHistoryCap
-    #  - $.definitions.ApplicationInsightsComponentQuotaStatus.properties.AppId
-    #  - $.definitions.ApplicationInsightsComponentQuotaStatus.properties.ShouldBeThrottled
-    #  - $.definitions.ApplicationInsightsComponentQuotaStatus.properties.ExpirationTime
-    #  - $.definitions.ApplicationInsightsComponentProactiveDetectionConfiguration.properties.Name
-    #  - $.definitions.ApplicationInsightsComponentProactiveDetectionConfiguration.properties.Enabled
-    #  - $.definitions.ApplicationInsightsComponentProactiveDetectionConfiguration.properties.SendEmailsToSubscriptionOwners
-    #  - $.definitions.ApplicationInsightsComponentProactiveDetectionConfiguration.properties.CustomEmails
-    #  - $.definitions.ApplicationInsightsComponentProactiveDetectionConfiguration.properties.LastUpdatedTime
-    #  - $.definitions.ApplicationInsightsComponentProactiveDetectionConfiguration.properties.RuleDefinitions
-    #  - $.definitions.ApplicationInsightsComponentProactiveDetectionConfiguration.properties.Name
-    #  - $.definitions.ApplicationInsightsComponentProactiveDetectionConfiguration.properties.Name
-    
+    where:
+     - $.definitions.ApplicationInsightsComponentProperties.properties.ApplicationId
+     - $.definitions.ApplicationInsightsComponentProperties.properties.AppId
+     - $.definitions.ApplicationInsightsComponentProperties.properties.Application_Type
+     - $.definitions.ApplicationInsightsComponentProperties.properties.Flow_Type
+     - $.definitions.ApplicationInsightsComponentProperties.properties.Request_Source
+     - $.definitions.ApplicationInsightsComponentProperties.properties.InstrumentationKey
+     - $.definitions.ApplicationInsightsComponentProperties.properties.CreationDate
+     - $.definitions.ApplicationInsightsComponentProperties.properties.TenantId
+     - $.definitions.ApplicationInsightsComponentProperties.properties.HockeyAppId
+     - $.definitions.ApplicationInsightsComponentProperties.properties.HockeyAppToken
+     - $.definitions.ApplicationInsightsComponentProperties.properties.SamplingPercentage
+     - $.definitions.WebTestProperties.properties.SyntheticMonitorId
+     - $.definitions.WebTestProperties.properties.Name
+     - $.definitions.WebTestProperties.properties.Description
+     - $.definitions.WebTestProperties.properties.Enabled
+     - $.definitions.WebTestProperties.properties.Frequency
+     - $.definitions.WebTestProperties.properties.Timeout
+     - $.definitions.WebTestProperties.properties.Kind
+     - $.definitions.WebTestProperties.properties.RetryEnabled
+     - $.definitions.WebTestProperties.properties.Locations
+     - $.definitions.WebTestProperties.properties.Configuration
+     - $.definitions.WebTestGeolocation.properties.Id 
+     - $.definitions.ApplicationInsightsComponentExportRequest.properties.RecordTypes
+     - $.definitions.ApplicationInsightsComponentExportRequest.properties.DestinationType
+     - $.definitions.ApplicationInsightsComponentExportRequest.properties.DestinationAddress
+     - $.definitions.ApplicationInsightsComponentExportRequest.properties.IsEnabled
+     - $.definitions.ApplicationInsightsComponentExportRequest.properties.NotificationQueueEnabled
+     - $.definitions.ApplicationInsightsComponentExportRequest.properties.NotificationQueueUri
+     - $.definitions.ApplicationInsightsComponentExportRequest.properties.DestinationStorageSubscriptionId
+     - $.definitions.ApplicationInsightsComponentExportRequest.properties.DestinationStorageLocationId
+     - $.definitions.ApplicationInsightsComponentExportRequest.properties.DestinationAccountId
+     - $.definitions.ApplicationInsightsComponentExportConfiguration.properties.ExportId
+     - $.definitions.ApplicationInsightsComponentExportConfiguration.properties.InstrumentationKey
+     - $.definitions.ApplicationInsightsComponentExportConfiguration.properties.RecordTypes
+     - $.definitions.ApplicationInsightsComponentExportConfiguration.properties.ApplicationName
+     - $.definitions.ApplicationInsightsComponentExportConfiguration.properties.SubscriptionId
+     - $.definitions.ApplicationInsightsComponentExportConfiguration.properties.ResourceGroup
+     - $.definitions.ApplicationInsightsComponentExportConfiguration.properties.DestinationStorageSubscriptionId
+     - $.definitions.ApplicationInsightsComponentExportConfiguration.properties.DestinationStorageLocationId
+     - $.definitions.ApplicationInsightsComponentExportConfiguration.properties.DestinationAccountId
+     - $.definitions.ApplicationInsightsComponentExportConfiguration.properties.DestinationType
+     - $.definitions.ApplicationInsightsComponentExportConfiguration.properties.IsUserEnabled
+     - $.definitions.ApplicationInsightsComponentExportConfiguration.properties.LastUserUpdate
+     - $.definitions.ApplicationInsightsComponentExportConfiguration.properties.NotificationQueueEnabled
+     - $.definitions.ApplicationInsightsComponentExportConfiguration.properties.ExportStatus
+     - $.definitions.ApplicationInsightsComponentExportConfiguration.properties.LastSuccessTime
+     - $.definitions.ApplicationInsightsComponentExportConfiguration.properties.LastGapTime
+     - $.definitions.ApplicationInsightsComponentExportConfiguration.properties.PermanentErrorReason
+     - $.definitions.ApplicationInsightsComponentExportConfiguration.properties.StorageName
+     - $.definitions.ApplicationInsightsComponentExportConfiguration.properties.ContainerName
+     - $.definitions.ApplicationInsightsComponentBillingFeatures.properties.DataVolumeCap
+     - $.definitions.ApplicationInsightsComponentBillingFeatures.properties.CurrentBillingFeatures
+     - $.definitions.ApplicationInsightsComponentDataVolumeCap.properties.Cap
+     - $.definitions.ApplicationInsightsComponentDataVolumeCap.properties.ResetTime
+     - $.definitions.ApplicationInsightsComponentDataVolumeCap.properties.WarningThreshold
+     - $.definitions.ApplicationInsightsComponentDataVolumeCap.properties.StopSendNotificationWhenHitThreshold
+     - $.definitions.ApplicationInsightsComponentDataVolumeCap.properties.StopSendNotificationWhenHitCap
+     - $.definitions.ApplicationInsightsComponentDataVolumeCap.properties.MaxHistoryCap
+     - $.definitions.ApplicationInsightsComponentQuotaStatus.properties.AppId
+     - $.definitions.ApplicationInsightsComponentQuotaStatus.properties.ShouldBeThrottled
+     - $.definitions.ApplicationInsightsComponentQuotaStatus.properties.ExpirationTime
+     - $.definitions.ApplicationInsightsComponentProactiveDetectionConfiguration.properties.Name
+     - $.definitions.ApplicationInsightsComponentProactiveDetectionConfiguration.properties.Enabled
+     - $.definitions.ApplicationInsightsComponentProactiveDetectionConfiguration.properties.SendEmailsToSubscriptionOwners
+     - $.definitions.ApplicationInsightsComponentProactiveDetectionConfiguration.properties.CustomEmails
+     - $.definitions.ApplicationInsightsComponentProactiveDetectionConfiguration.properties.LastUpdatedTime
+     - $.definitions.ApplicationInsightsComponentProactiveDetectionConfiguration.properties.RuleDefinitions
+     - $.definitions.ApplicationInsightsComponentProactiveDetectionConfiguration.properties.Name
+     - $.definitions.ApplicationInsightsComponentProactiveDetectionConfiguration.properties.Name
+     - $.definitions.ApplicationInsightsComponentWebTestLocation.properties.Tag
+     - $.definitions.ApplicationInsightsComponentWebTestLocation.properties.DisplayName
+     - $.definitions.ApplicationInsightsComponentFavorite.properties.UserId
+     - $.definitions.ApplicationInsightsComponentFavorite.properties.IsGeneratedFromTemplate
+     - $.definitions.ApplicationInsightsComponentFavorite.properties.Category
+     - $.definitions.ApplicationInsightsComponentFavorite.properties.Tags
+     - $.definitions.ApplicationInsightsComponentFavorite.properties.TimeModified
+     - $.definitions.ApplicationInsightsComponentFavorite.properties.SourceType
+     - $.definitions.ApplicationInsightsComponentFavorite.properties.FavoriteType
+     - $.definitions.ApplicationInsightsComponentFavorite.properties.FavoriteId
+     - $.definitions.ApplicationInsightsComponentFavorite.properties.Version
+     - $.definitions.ApplicationInsightsComponentFavorite.properties.Config
+     - $.definitions.ApplicationInsightsComponentFavorite.properties.Name
+     - $.definitions.ApplicationInsightsComponentFeatureCapability.properties.MeterRateFrequency
+     - $.definitions.ApplicationInsightsComponentFeatureCapability.properties.MeterId
+     - $.definitions.ApplicationInsightsComponentFeatureCapability.properties.Unit
+     - $.definitions.ApplicationInsightsComponentFeatureCapability.properties.Value
+     - $.definitions.ApplicationInsightsComponentFeatureCapability.properties.Description
+     - $.definitions.ApplicationInsightsComponentFeatureCapability.properties.Name
+     - $.definitions.ApplicationInsightsComponentFeature.properties.SupportedAddonFeatures
+     - $.definitions.ApplicationInsightsComponentFeature.properties.IsMainFeature
+     - $.definitions.ApplicationInsightsComponentFeature.properties.Title
+     - $.definitions.ApplicationInsightsComponentFeature.properties.Capabilities
+     - $.definitions.ApplicationInsightsComponentFeature.properties.IsHidden
+     - $.definitions.ApplicationInsightsComponentFeature.properties.ResouceId
+     - $.definitions.ApplicationInsightsComponentFeature.properties.MeterRateFrequency
+     - $.definitions.ApplicationInsightsComponentFeature.properties.MeterId
+     - $.definitions.ApplicationInsightsComponentFeature.properties.FeatureName
+     - $.definitions.ApplicationInsightsComponentAvailableFeatures.properties.Result
+     - $.definitions.ApplicationInsightsComponentFeatureCapabilities.properties.ThrottleRate
+     - $.definitions.ApplicationInsightsComponentFeatureCapabilities.properties.DailyCapResetTime
+     - $.definitions.ApplicationInsightsComponentFeatureCapabilities.properties.DailyCap
+     - $.definitions.ApplicationInsightsComponentFeatureCapabilities.properties.TrackingType
+     - $.definitions.ApplicationInsightsComponentFeatureCapabilities.properties.ApiAccessLevel
+
   - suppress: R2066
     reason: There are a bug in this rule. "ExportConfigurations_Create" is a valid operation id.
 ```

@@ -20,6 +20,13 @@ var context;
 // utils.examples = utils.examples.filter(function(item) {
 //   return (item.match(/.*Microsoft.Logic.*2016-06-01.*/ig) !== null);
 // });
+utils.swaggers = utils.swaggers.filter(function(item) {
+  return (item.match(/.*microsoft.insights.*2015-05-01.*/ig) !== null);
+});
+
+utils.examples = utils.examples.filter(function(item) {
+  return (item.match(/.*microsoft.insights.*2015-05-01.*/ig) !== null);
+});
 
 
 describe('Azure swagger schema validation:', function () {

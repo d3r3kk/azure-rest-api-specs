@@ -80,7 +80,7 @@ async function getTagsFromConfig(config) {
 }
 
 function execLinterCommand(args) {
-  var cmd = `npx autorest@2.0.4152 --validation --azure-validator --message-format=json ${args}`.trim();
+  var cmd = `npx autorest@2.0.4245 --verbose --validation --azure-validator --message-format=json ${args}`.trim();
   console.log(`Executing: ${cmd}`);
   try {
     let result = execSync(cmd, { encoding: 'utf8', maxBuffer: 1024 * 1024 * 64 });
@@ -95,32 +95,48 @@ describe('AutoRest Linter validation:', function () {
   if (utils.prOnly) {
     // Useful when debugging a test for a particular swagger. 
     // Just update the regex. That will return an array of filtered items.
-    // configsToProcess = ['specification/sql/resource-manager/readme.md'];
-    let configsToProcess = utils.getConfigFilesChangedInPR();
+    let configsToProcess = ['D:/dev/github/d3r3kk/azure-rest-api-specs/specification/applicationinsights/resource-manager/readme.md'];
+    let filesToProcess = utils.swaggers.filter(function(item) {
+      return (item.match(/.*Microsoft.Insights.*2015-05-01.*/ig) !== null);
+    });
+    //let configsToProcess = utils.getConfigFilesChangedInPR();
+  
     for (const config of configsToProcess) {
       it(config + ' should honor linter validation rules.', async function () {
+
+        console.info("Checking on file: " + config);
 
         // find all tags in the config file
         const tagsToProcess = await getTagsFromConfig(config);
         // if no tags found to process, run with the defaults    
         if (tagsToProcess === null || tagsToProcess.length === 0) {
-          // no tags found
+          console.info("No tags found");
           // this means we need to run validator against the individual 
           // json files included in the PR
           // but in the same directory tree as the config file
-          const filesChangedInPR = utils.getFilesChangedInPR();
+          const filesChangedInPR = filesToProcess;
           const configDir = path.dirname(config);
+          console.info(`Using configDir = ${configDir} to filter...`);
           filesChangedInPR.filter(prFile => {
+            console.info(`Filtering file ${prFile}`);
+            
             // set any type to string
             prFile += '';
-            return prFile.startsWith(configDir) && prFile.indexOf('examples') === -1 && prFile.endsWith('.json');
+            let isGood = prFile.startsWith(configDir) && prFile.indexOf('examples') === -1 && prFile.endsWith('.json');
+            console.info(`         isgood = ${isGood}`);
+            return isGood;
           }).forEach(prFileInConfigFile => {
+            console.info("Checking file: " + prFileInConfigFile);
             console.warn(`WARNING: Configuration file not found for file: ${prFileInConfigFile}, running validation rules against it in individual context.`);
             execLinterCommand(`--input-file=${prFileInConfigFile}`);
           });
         }
         else {
           // if tags found, run linter against every single tag
+          tagsToProcess.forEach((tagToProcess) => {
+            console.info(`Processing tag '${tagToProcess}'`);
+          }, this);
+
           tagsToProcess.forEach((tagToProcess) => {
             execLinterCommand(`${config} --tag=${tagToProcess}`);
           }, this);
